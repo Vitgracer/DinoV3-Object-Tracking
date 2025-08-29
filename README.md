@@ -12,6 +12,7 @@ This project shows how to track objects in videos using the powerful [**DINOv3**
 <p float="left">
   <img src="results/cat.gif" width="200" />
   <img src="results/dog.gif" width="200" />
+  <img src="results/butterfly.gif" width="200" />
 </p>
 
 ---
