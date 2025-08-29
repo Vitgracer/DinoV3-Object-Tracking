@@ -34,6 +34,7 @@ def run_tracking(config):
             
             heatmap_resized = build_heatmap(patch_features, tracking_feature, config)
             
+            # this thing is not necessary and added for nicer vizualization
             heatmap_norm = (heatmap_resized - heatmap_resized.min()) / (
                 heatmap_resized.max() - heatmap_resized.min() + 1e-6
             )
