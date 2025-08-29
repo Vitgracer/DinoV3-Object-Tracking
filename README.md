@@ -9,6 +9,11 @@
 
 This project shows how to track objects in videos using the powerful [**DINOv3**](https://github.com/facebookresearch/dinov3) model. Let's dive in! 🏊‍♂️  
 
+<p float="left">
+  <img src="results/cat.gif" width="200" />
+  <img src="results/dog.gif" width="200" />
+</p>
+
 ---
 
 ## 🦖 What is DINOv3?
