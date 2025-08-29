@@ -1,5 +1,5 @@
-path_to_input_video: data/dog.mp4
-path_to_output_video: results/tracked.mp4
+path_to_input_video: data/cat.mp4
+path_to_output_video: results/tracked_cat.mp4
 
 onnx_model_path: model/model_fp16.onnx
 
