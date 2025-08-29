@@ -60,7 +60,7 @@ pip install tqdm matplotlib
 - Place it in the *model/* folder.
 - We used **fp16 ViT-S**, but you can try any other variant
 
-### Step 4: Config is "all you need" 😂
+### Step 4: Config is "all you need" 😅
 - Open *config.py* and set *path_to_input_video* to your video file
 - The video will be cropped to a square and resized to 224×224 for convenience
 
