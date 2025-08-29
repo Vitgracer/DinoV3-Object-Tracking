@@ -24,7 +24,7 @@ It can:
 
 - Understand images without needing labeled data
 - Produce super-robust feature embeddings for image patches  
-- Be used for image segmentation, object tracking, zero-shot classification, and more 
+- Can be used for image segmentation, object tracking, zero-shot classification, and more 
 - Works even if the object rotates, scales, or changes appearance   
 
 🤓 In short: *DinoV3 just knows. Everything. Period.*
