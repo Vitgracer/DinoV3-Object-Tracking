@@ -33,6 +33,10 @@ It can:
 
 ## 💪 What does this project do?
 
+<p float="left">
+  <img src="resources/how_it_works.png" width="600" />
+</p>
+
 This project is a **fun demo of object tracking** on videos using [**DINOv3**](https://github.com/facebookresearch/dinov3). 
 
 How it works:
