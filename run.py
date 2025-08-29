@@ -1,6 +1,7 @@
 import cv2
 import yaml
 import numpy as np
+from tqdm import tqdm
 import onnxruntime as ort
 from argparse import Namespace
 from preprocessing.utils import get_central_crop
@@ -21,30 +22,34 @@ def run_tracking(config):
         (config.img_size, config.img_size * 2)
     )
     
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        
-        frame_cropped = get_central_crop(frame, config.img_size)
-        patch_features = get_patch_features(frame_cropped, onnx_session)  # [196, 384]
-        
-        heatmap_resized = build_heatmap(patch_features, tracking_feature, config)
-        
-        heatmap_norm = (heatmap_resized - heatmap_resized.min()) / (
-            heatmap_resized.max() - heatmap_resized.min() + 1e-6
-        )
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    with tqdm(total=total_frames, desc="Processing video") as pbar:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            
+            frame_cropped = get_central_crop(frame, config.img_size)
+            patch_features = get_patch_features(frame_cropped, onnx_session)  # [196, 384]
+            
+            heatmap_resized = build_heatmap(patch_features, tracking_feature, config)
+            
+            heatmap_norm = (heatmap_resized - heatmap_resized.min()) / (
+                heatmap_resized.max() - heatmap_resized.min() + 1e-6
+            )
 
-        heatmap_norm = 1 - heatmap_norm
+            heatmap_norm = 1 - heatmap_norm
 
-        heatmap_colored = cv2.applyColorMap(
-            (heatmap_norm*255).astype(np.uint8),
-            cv2.COLORMAP_JET
-        )
+            heatmap_colored = cv2.applyColorMap(
+                (heatmap_norm*255).astype(np.uint8),
+                cv2.COLORMAP_JET
+            )
 
-        final_image = np.vstack((cv2.cvtColor(frame_cropped, cv2.COLOR_RGB2BGR),
-                                 cv2.cvtColor(heatmap_colored, cv2.COLOR_RGB2BGR)))
-        out_writer.write(final_image)
+            final_image = np.vstack((frame_cropped, 
+                                     cv2.cvtColor(heatmap_colored, cv2.COLOR_RGB2BGR)))
+            out_writer.write(final_image)
+
+            pbar.update(1)
 
     cap.release()
     out_writer.release()
