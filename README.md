@@ -5,6 +5,8 @@
 ![GitHub forks](https://img.shields.io/github/forks/Vitgracer/DinoV3-Object-Tracking?style=social)
 ![Python](https://img.shields.io/badge/Python-3776AB.svg?logo=python&logoColor=white)
 
+[Blogpost](https://vitgracer.github.io/posts/cv_dino_post_30_08_2025.html)
+
 # 🎉 DINOv3 Object Tracking Demo
 ⚠️ **It is not an official Meta product.**  
 
