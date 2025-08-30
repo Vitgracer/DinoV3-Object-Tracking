@@ -1,3 +1,4 @@
+![Visits](https://api.visitorbadge.io/api/VisitorHit?user=Vitgracer&repo=DinoV3-Object-Tracking&countColor=%237B1E7A)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Vitgracer/DinoV3-Object-Tracking?color=blue)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Vitgracer/DinoV3-Object-Tracking?color=green)
 ![GitHub stars](https://img.shields.io/github/stars/Vitgracer/DinoV3-Object-Tracking?style=social)
